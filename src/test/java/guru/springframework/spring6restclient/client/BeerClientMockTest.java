@@ -160,6 +160,8 @@ public class BeerClientMockTest {
                 .andExpect(header("Authorization", BEARER_TEST))
                 .andRespond(withResourceNotFound());
 
+        System.out.println(dto.getId());
+
         assertThrows(HttpClientErrorException.class, () -> {
             beerClient.deleteBeer(dto.getId());
         });
